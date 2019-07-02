@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="210" pageHeight="297" columnWidth="200" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="7" uuid="b123e6e2-ddf4-4676-b11b-d9f50677e526">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="number" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="designation" class="java.lang.String">
+		<fieldDescription><![CDATA[designation]]></fieldDescription>
+	</field>
+	<field name="nbvente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[nbvente]]></fieldDescription>
+	</field>
+	<field name="prix" class="java.lang.Float">
+		<fieldDescription><![CDATA[prix]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement mode="Transparent" x="0" y="0" width="200" height="28" uuid="b0e63a2e-62f2-46d1-990f-ca921b2ebb0e"/>
+				<imageExpression><![CDATA["/home/genius/NetBeansProjects/Spirit/src/media/logo_poceram_jpeg.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="26" width="200" height="14" uuid="18b6245b-d28c-4c41-bca6-ee683265c3ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Fabrication de poterie,briques]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="200" height="16" uuid="6988d547-1d89-4d6c-b2b3-22f36e2b23a0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[+226 XXXXXXXX/XXXXXXXX | mail@gmail.com]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="36" y="56" width="164" height="12" uuid="a72a8fb7-ccbb-4c43-aa18-93e3a8841d36"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="56" width="36" height="12" uuid="5fcddc95-5077-4d0f-bb87-b0454624023d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ticket N°]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="87" height="18" uuid="cc6beb5e-df92-4f66-ae13-d02eb42472fc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[designation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="87" y="1" width="52" height="20" uuid="05d5d465-7bbc-434f-96ae-e8599dc44845"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Qte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="0" width="61" height="20" uuid="f372576a-ef67-4349-baee-3049796a1813"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[prix .U]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="200" height="1" forecolor="#666666" uuid="c130d729-cc4e-4630-947c-711260864b51"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="87" height="10" uuid="493536df-9797-4c3b-b632-142cc036a9df"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{designation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="0" width="52" height="10" uuid="3474cf8d-b2f4-4334-8f4f-4c20f9a50d10"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nbvente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="0" width="61" height="10" uuid="f961cf17-3eab-4309-ac95-8c6dbc9ed1c1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prix}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="61" y="0" width="139" height="16" uuid="1d0c1075-f74e-450f-b5d6-b786ae998b12"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="61" height="16" uuid="63b77ec9-820f-4615-b38a-ee192b9e01ea"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="200" height="1" forecolor="#666666" uuid="4a989306-c565-43c1-b849-447bb9e75c4b"/>
+				<graphicElement>
+					<pen lineStyle="Dashed" lineColor="#666666"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="16" width="200" height="13" uuid="7d861433-34e4-4095-b5bc-7b3c12eca88c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Merci ! agréable journé !!!]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

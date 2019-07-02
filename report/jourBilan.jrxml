@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4935889a-bffd-4ad6-a2f3-78ee5be781cf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="jour" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="mois" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="annee" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+    Produit.designation,
+    Produit.prix,
+    SUM(detail_vente.quantite) AS NBVENTE,
+    SUM(prix_total) AS TOTAL,
+    date
+FROM
+    Produit,
+    Vente,
+    detail_vente
+WHERE
+        code = Produit_code
+        AND Vente.id = Vente_id
+        AND YEAR(Vente.date) = $P{annee}
+        AND MONTH(date) = $P{mois}
+        AND DAY(date) = $P{jour}
+
+GROUP BY code
+
+ORDER BY NBVENTE DESC]]>
+	</queryString>
+	<field name="designation" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prix" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NBVENTE" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TOTAL" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="TOTAL_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOTAL}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="146" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="138" y="90" width="417" height="30" uuid="91b96f2f-3935-4452-b98c-30e422cb0779"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="20" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="138" y="120" width="417" height="26" uuid="c046bd28-8a3e-4217-b1e4-564b086f930d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="90" width="138" height="30" uuid="8a71c7be-80fe-45fb-87b6-7d305abb58d5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="20" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Bilan du :]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement x="0" y="0" width="555" height="88" uuid="2e9702a2-ac5d-48de-9d1b-704d278e7746"/>
+				<imageExpression><![CDATA["/plogo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="120" width="138" height="26" uuid="990e54ce-a666-4175-82a5-41899ef808fc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<text><![CDATA[Consulter le :]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="31" backcolor="#CCCCFF" uuid="f888b77f-566f-4db3-84aa-5d7b0e65d8f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[designation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="127" height="31" backcolor="#CCCCFF" uuid="d683eec9-4cba-42c1-ac32-14042e680d24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[prix]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="265" y="0" width="149" height="31" backcolor="#CCCCFF" uuid="4d7eb2d5-6503-4790-8517-e1149dcd1d32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre de ventes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="141" height="31" backcolor="#CCCCFF" uuid="1a076a77-71c0-44d9-a943-7dc3254ce883"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="31" backcolor="#CCFFFF" uuid="5a75c845-384f-4a7b-b8d1-3b7c0926c693"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+					<paragraph leftIndent="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{designation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="138" y="0" width="127" height="31" backcolor="#CCFFFF" uuid="c420b527-dab5-4ce1-be2d-8347bd0f6ceb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prix}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="265" y="0" width="149" height="31" backcolor="#CCFFFF" uuid="159a62e7-c35f-444c-a9b5-162ceefc180d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NBVENTE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###">
+				<reportElement mode="Opaque" x="414" y="0" width="141" height="31" backcolor="#CCFFFF" uuid="96ecf808-1577-4d70-a538-934aed085fb9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="3" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="30" splitType="Stretch">
+			<textField pattern="#,###">
+				<reportElement mode="Opaque" x="265" y="0" width="252" height="30" backcolor="#CCCCFF" uuid="64bc8418-5f71-464b-8a89-02bb57856110"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+					<paragraph rightIndent="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TOTAL_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="265" height="30" backcolor="#CCCCFF" uuid="65cd5c37-9683-4112-8f03-c303ebc3d7b2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="517" y="0" width="38" height="30" backcolor="#CCCCFF" uuid="03e6251c-2edc-45c3-9654-163ea9c3b7a1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FCFA]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

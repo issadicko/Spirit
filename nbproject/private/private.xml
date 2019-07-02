@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/parametre/Config.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/spirit/JListerow.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/spirit/customisation/MyJListeCellRender.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/datamanager/VenteManager.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/datamanager/ClientManager.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/spirit/customisation/MyTableCellRender.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/controle/SmartControler.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/spirit/Fenetre.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/datamanager/outils/EntityManager.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/spirit/PanneauApprovisionnement.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/preference/PrefMan.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/datamanager/ProduitManager.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/spirit/Client_adder.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/spirit/Login.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/spirit/Lanceur.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/parametre/Setting.java</file>
+            <file>file:/home/dicko/NetBeansProjects/Spirit/src/datamanager/LigneVenteManager.java</file>
+        </group>
+    </open-files>
+</project-private>
